@@ -46,7 +46,7 @@ export function bulletsTextToFlowCvUlHtml(bulletsText) {
     return `<li><p>${html}</p></li>`;
   });
 
-  const italicItem = items[0].indexOf("&amp;&amp;") == 0 ? `<em>${items[0].replaceAll("&amp;&amp;", "").replace("<li>", "").replace("<p>", "").replace("</p>", "").replace("</li>", "")}</em><p></p>` : "";
+  const italicItem = items[0].includes("&amp;&amp;") ? `<em>${items[0].replaceAll("&amp;&amp;", "").replace("<li>", "").replace("<p>", "").replace("</p>", "").replace("</li>", "")}</em><p></p>` : "";
   if (italicItem) items.shift();
   return `${italicItem}<ul>${items.join("")}</ul>`;
 }
