@@ -42,7 +42,7 @@ export function descriptionToFlowCvHtml(text) {
   const raw = String(text || "").trim();
   if (!raw) return "<p></p>";
   let s = stripBoldMarkers(escapeFlowCvPlainText(raw));
-  return `<p>${s.replace(/\n/g, "<br>")}</p>`;
+  return `<p style=\"text-align: justify\">${s.replace(/\n/g, "<br>")}</p>`;
 }
 
 /**
@@ -61,7 +61,7 @@ export function summaryToFlowCvHtml(summary) {
   if (blocks.length === 0) return "<p></p>";
 
   return blocks
-    .map((block) => `<p>${block.replace(/\n/g, "<br>")}</p>`)
+    .map((block) => `<p style=\"text-align: justify\">${block.replace(/\n/g, "<br>")}</p>`)
     .join("");
 }
 
