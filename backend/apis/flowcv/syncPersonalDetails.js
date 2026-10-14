@@ -103,6 +103,7 @@ export async function syncFlowCvPersonalDetailsAfterTailor(tailoredResumeJson) {
       ok: true,
       pdfContentType: pdf.contentType,
       pdfBase64: pdf.buffer.toString('base64'),
+      saveEntryBody: {profileBody, impactBodies, skillBodies, workBodies},
     };
   } catch (err) {
     const message =
