@@ -46,7 +46,7 @@ export function bulletsTextToFlowCvUlHtml(bulletsText) {
     return `<li style=\"text-align: justify\"><p style=\"text-align: justify\">${html}</p></li>`;
   });
 
-  const italicItem = items[0].includes("&amp;&amp;") ? `<p style=\"text-align: justify\"><em>${items[0].replaceAll("&amp;&amp;", "").replace("<li>", "").replace("<p>", "").replace("</p>", "").replace("</li>", "")}</em></p><p></p>` : "";
+  const italicItem = items[0].includes("&amp;&amp;") ? `<p style=\"text-align: justify\"><em>${items[0].replaceAll("&amp;&amp;", "").replace("<li style=\"text-align: justify\"><p style=\"text-align: justify\">", "").replace("</p>", "").replace("</li>", "")}</em></p><p></p>` : "";
   if (italicItem) items.shift();
   return `${italicItem}<ul>${items.join("")}</ul>`;
 }
